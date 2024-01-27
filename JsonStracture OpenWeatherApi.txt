@@ -1,0 +1,28 @@
+try {
+JSONObject jsonResponse = new JSONObject(response);
+JSONArray jsonArray = jsonResponse.getJSONArray( name: "weather");
+JSONObject jsonObjectweather = jsonArray.getJSONObject( index: 0);
+String description = jsonobjectweather.getstring( name: "description");
+JSONObject jsonobjectMain = jsonResponse.getJSONObject("main");
+double temp = jsonObjectMain.getDouble( name: "temp") - 273.15;
+double feelsLike = jsonobjectMain.getDouble( name: "feels_like") - 273.15
+float pressure = jsonobjectMain.getInt( name: "pressure");
+int humidity = jsonobjectMain.getInt( name: "humidity");
+JSONObject jsonObjectwind = jsonResponse.getJSONObject("wind");
+String wind = jsonobjectwind.getstring( name: "speed");
+JSONObject jsonobjectClouds = jsonResponse.getJSONObject("clouds");
+String clouds = jsonObjectClouds.getstring( name: "all");
+JSONObject jsonobjectSys = jsonResponse.getJSONObject("sys");
+String countryName = jsonObjectSys.getstring( name: "country");
+String cityName = jsonResponse.getString( name: "name");
+tvResult.setTextColor(Color.rgb( red: 68, green: 134, blue: 199));
+output += "Current weather of " + cityName + " (" + countryName + ")"
++ "\n Temp: " + df.format(temp) + " ℃"
++ "\n Feels Like: " + df.format(feelsLike) +" ℃"
++ "\n Humidity: " + humidity + "%"
++ "\n Description: " + description
++ "\n wind Speed: " + wind + "m/s (meters per second)"
++ "\n Cloudiness: " + clouds + "%"
++ "\n Pressure: " + pressure + " hPa";
+tvResult.setText(output);
+1 catch (]SONEycention e) f
